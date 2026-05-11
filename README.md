@@ -33,8 +33,8 @@ clothes-recommender/
 │   └── results/              # CSVs y gráficas generadas
 |        ├── exp01_graficas.png # Gráficas generadas para experimento 1
 |        ├── exp02_graficas.png # Gráficas generadas para experimento 2
-|        ├── exp01_resultados.png # CSV para experimento 1
-|        ├── exp02_resultados.png # CSV para experimento 2
+|        ├── exp01_resultados.csv # CSV para experimento 1
+|        ├── exp02_resultados.csv # CSV para experimento 2
 |
 ├── app.py                    # Interfaz de consola
 ├── metrics.py                # Cálculo de métricas

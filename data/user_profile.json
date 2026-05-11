@@ -1,0 +1,41 @@
+{
+  "preferencias": {
+    "colores": {
+      "azul": 2.0,
+      "rojo": -0.5
+    },
+    "telas": {
+      "algodón": 1.5
+    },
+    "marcas": {
+      "Nike": 1.5
+    }
+  },
+  "pesos": {
+    "w1_similitud": 0.5,
+    "w2_preferencia": 0.32,
+    "w3_novedad": 0.18
+  },
+  "historial": [
+    {
+      "producto_id": 1,
+      "nombre": "Camiseta Básica Azul",
+      "feedback": "like",
+      "color": "azul",
+      "tela": "algodón",
+      "marca": "Nike"
+    },
+    {
+      "producto_id": 2,
+      "nombre": "Camiseta Básica Roja",
+      "feedback": "dislike",
+      "color": "rojo",
+      "tela": "algodón",
+      "marca": "Nike"
+    }
+  ],
+  "ultima_recomendacion": 2,
+  "sesiones": 1,
+  "likes_totales": 1,
+  "dislikes_totales": 1
+}

@@ -1,0 +1,21 @@
+ronda,feedback,producto,color,tela,marca,score,precision,w1,w2,w3,Cp_snapshot,Tp_snapshot,Mp_snapshot
+1,like,Camiseta Básica Azul,azul,algodón,Nike,0.85,1.0,0.5,0.32,0.18,{'azul': 2.0},{'algodón': 2.0},{'Nike': 2.0}
+2,like,Camiseta Básica Roja,rojo,algodón,Nike,0.8333,1.0,0.5,0.34,0.16,"{'azul': 2.0, 'rojo': 1.0}",{'algodón': 3.0},{'Nike': 3.0}
+3,like,Camiseta Básica Azul,azul,algodón,Nike,0.84,1.0,0.5,0.36,0.14,"{'azul': 3.0, 'rojo': 1.0}",{'algodón': 4.0},{'Nike': 4.0}
+4,like,Camiseta Básica Azul,azul,algodón,Nike,0.86,1.0,0.5,0.38,0.12,"{'azul': 4.0, 'rojo': 1.0}",{'algodón': 5.0},{'Nike': 5.0}
+5,like,Camiseta Básica Azul,azul,algodón,Nike,0.88,1.0,0.5,0.4,0.1,"{'azul': 5.0, 'rojo': 1.0}",{'algodón': 6.0},{'Nike': 6.0}
+6,like,Camiseta Básica Azul,azul,algodón,Nike,0.9,1.0,0.4902,0.4118,0.098,"{'azul': 6.0, 'rojo': 1.0}",{'algodón': 7.0},{'Nike': 7.0}
+7,like,Camiseta Básica Azul,azul,algodón,Nike,0.902,1.0,0.4796,0.4225,0.0978,"{'azul': 7.0, 'rojo': 1.0}",{'algodón': 8.0},{'Nike': 8.0}
+8,like,Camiseta Básica Azul,azul,algodón,Nike,0.9021,1.0,0.4692,0.4329,0.0978,"{'azul': 8.0, 'rojo': 1.0}",{'algodón': 9.0},{'Nike': 9.0}
+9,like,Camiseta Básica Azul,azul,algodón,Nike,0.9021,1.0,0.4591,0.4431,0.0978,"{'azul': 9.0, 'rojo': 1.0}",{'algodón': 10.0},{'Nike': 10.0}
+10,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.4491,0.453,0.0978,"{'azul': 10.0, 'rojo': 1.0}",{'algodón': 11.0},{'Nike': 11.0}
+11,like,Camiseta Básica Azul,azul,algodón,Nike,0.9021,1.0,0.4394,0.4628,0.0978,"{'azul': 11.0, 'rojo': 1.0}",{'algodón': 12.0},{'Nike': 12.0}
+12,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.4299,0.4723,0.0978,"{'azul': 12.0, 'rojo': 1.0}",{'algodón': 13.0},{'Nike': 13.0}
+13,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.4206,0.4816,0.0978,"{'azul': 13.0, 'rojo': 1.0}",{'algodón': 14.0},{'Nike': 14.0}
+14,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.4115,0.4907,0.0978,"{'azul': 14.0, 'rojo': 1.0}",{'algodón': 15.0},{'Nike': 15.0}
+15,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.4026,0.4996,0.0978,"{'azul': 15.0, 'rojo': 1.0}",{'algodón': 16.0},{'Nike': 16.0}
+16,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.3939,0.5083,0.0978,"{'azul': 16.0, 'rojo': 1.0}",{'algodón': 17.0},{'Nike': 17.0}
+17,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.3853,0.5168,0.0978,"{'azul': 17.0, 'rojo': 1.0}",{'algodón': 18.0},{'Nike': 18.0}
+18,like,Camiseta Básica Azul,azul,algodón,Nike,0.9021,1.0,0.377,0.5252,0.0978,"{'azul': 18.0, 'rojo': 1.0}",{'algodón': 19.0},{'Nike': 19.0}
+19,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.3688,0.5334,0.0978,"{'azul': 19.0, 'rojo': 1.0}",{'algodón': 20.0},{'Nike': 20.0}
+20,like,Camiseta Básica Azul,azul,algodón,Nike,0.9022,1.0,0.3608,0.5414,0.0978,"{'azul': 20.0, 'rojo': 1.0}",{'algodón': 21.0},{'Nike': 21.0}

@@ -1,0 +1,31 @@
+id,nombre,color,tela,marca,precio,categoria
+1,Camiseta Básica Azul,azul,algodón,Nike,299,camiseta
+2,Camiseta Básica Roja,rojo,algodón,Nike,299,camiseta
+3,Camiseta Básica Verde,verde,algodón,Adidas,319,camiseta
+4,Camiseta Básica Negra,negro,algodón,Zara,259,camiseta
+5,Camiseta Básica Blanca,blanco,algodón,H&M,229,camiseta
+6,Polo Azul Marino,azul,piqué,Lacoste,599,polo
+7,Polo Rojo,rojo,piqué,Lacoste,599,polo
+8,Polo Verde,verde,piqué,Ralph Lauren,649,polo
+9,Polo Negro,negro,piqué,Ralph Lauren,619,polo
+10,Polo Blanco,blanco,piqué,Tommy Hilfiger,579,polo
+11,Camisa Azul Oxford,azul,lino,Zara,449,camisa
+12,Camisa Blanca Formal,blanco,lino,Zara,469,camisa
+13,Camisa Verde Casual,verde,lino,H&M,399,camisa
+14,Camisa Roja Cuadros,rojo,franela,Levis,479,camisa
+15,Camisa Negra Slim,negro,lino,Calvin Klein,549,camisa
+16,Sudadera Azul,azul,poliéster,Nike,699,sudadera
+17,Sudadera Negra,negro,poliéster,Adidas,679,sudadera
+18,Sudadera Verde,verde,poliéster,Adidas,689,sudadera
+19,Sudadera Roja,rojo,poliéster,Puma,659,sudadera
+20,Sudadera Blanca,blanco,algodón,Nike,719,sudadera
+21,Pantalón Azul Slim,azul,mezclilla,Levis,799,pantalon
+22,Pantalón Negro Slim,negro,mezclilla,Levis,799,pantalon
+23,Pantalón Gris Casual,gris,algodón,Zara,599,pantalon
+24,Pantalón Verde Cargo,verde,algodón,H&M,649,pantalon
+25,Pantalón Blanco Chino,blanco,algodón,Tommy Hilfiger,699,pantalon
+26,Chaqueta Azul Denim,azul,mezclilla,Levis,999,chaqueta
+27,Chaqueta Negra Cuero,negro,cuero,Zara,1499,chaqueta
+28,Chaqueta Verde Militar,verde,algodón,H&M,899,chaqueta
+29,Chaqueta Roja Bomber,rojo,poliéster,Nike,1099,chaqueta
+30,Chaqueta Blanca Invierno,blanco,lana,Calvin Klein,1299,chaqueta

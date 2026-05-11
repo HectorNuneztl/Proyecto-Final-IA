@@ -1,16 +1,14 @@
 """
 Sistema de Retroalimentación del agente.
 
-Esta es la pieza que hace que el agente "aprenda".
-
 Cuando el usuario da feedback:
     LIKE    → el agente refuerza los atributos del producto
     DISLIKE → el agente penaliza los atributos del producto
 
-Adicionalmente, los pesos w1, w2, w3 de la función de decisión
+Los pesos w1, w2, w3 de la función de decisión
 se ajustan dinámicamente según el rendimiento acumulado del agente.
 
-Esto implementa: Aprendizaje basado en retroalimentación (Feedback Learning)
+De esta forma se implementa prendizaje basado en retroalimentación (Feedback Learning)
 """
 
 from agent.state import AgentState

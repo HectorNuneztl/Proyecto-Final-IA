@@ -1,5 +1,5 @@
 """
-Implementa la Función de Desicón del agente inteligente.
+Implementa la Función de Desicón del agente.
 
 Fórmula:
     a* = argmax f(s, a)

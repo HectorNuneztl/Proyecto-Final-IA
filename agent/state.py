@@ -1,7 +1,7 @@
 """
-Representa el ESTADO del agente inteligente.
+Estado del agente.
 
-En la arquitectura del agente:
+Arquitectura:
     S = (Cp, Tp, Mp, H, R)
 
 Donde:

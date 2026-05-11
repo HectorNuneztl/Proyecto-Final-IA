@@ -74,6 +74,97 @@ Opciones del menú:
 - `[3]` Reiniciar perfil del usuario
 - `[4]` Salir
 
+## Ejemplo de ejecución
+Modo 2 (desglose de decisión visible):
+
+```
+==================================================
+     CLOTHES RECOMMENDER — Agente IA
+==================================================
+
+CONFIGURACIÓN INICIAL DE PREFERENCIAS
+─────────────────────────────────────────────
+  Colores disponibles: azul, rojo, verde, negro, blanco, gris
+  ¿Qué colores prefieres? → azul
+
+  Telas disponibles: algodón, poliéster, lino, mezclilla, franela, piqué, lana, cuero
+  ¿Qué telas prefieres? → algodón
+
+  Marcas disponibles: Nike, Adidas, Zara, H&M, Levis, Lacoste, Ralph Lauren, ...
+  ¿Qué marcas prefieres? → Nike
+
+     Preferencias registradas:
+     Colores: ['azul']
+     Telas:   ['algodón']
+     Marcas:  ['Nike']
+
+  ¡Comenzando recomendaciones!
+
+  ── Ronda 1 ──────────────────────────────────
+==================================================
+           RECOMENDACIÓN DEL AGENTE
+==================================================
+  Nombre:    Camiseta Básica Azul
+  Color:     azul
+  Tela:      algodón
+  Marca:     Nike
+  Categoría: camiseta
+  Precio:    $299
+
+─────────────────────────────────────────────────
+  DECISIÓN DEL AGENTE
+─────────────────────────────────────────────────
+  Producto:    Camiseta Básica Azul
+  Score total: 0.8500
+
+  Desglose f(s,a):
+    w1=0.50 × similitud=0.8333   → 0.4167
+    w2=0.30 × preferencia=0.5000 → 0.1500
+    w3=0.20 × novedad=1.0000     → 0.2000
+    ─────────────────────────────────────
+    TOTAL f(s,a) = 0.8500
+─────────────────────────────────────────────────
+
+  ¿Qué te parece esta recomendación?
+  [L] Me gusta   [D] No me gusta   [S] Salir   [E] Ver estado del agente
+  → L
+
+  LIKE → 'Camiseta Básica Azul'
+  Atributos: color=azul, tela=algodón, marca=Nike
+  Cp['azul']:   1.0 → 2.0
+  Tp['algodón']: 1.0 → 2.0
+  Mp['Nike']:   1.0 → 2.0
+
+  ── Ronda 2 ──────────────────────────────────
+==================================================
+          RECOMENDACIÓN DEL AGENTE
+==================================================
+  Nombre:    Sudadera Azul
+  Color:     azul
+  Tela:      poliéster
+  Marca:     Nike
+  Categoría: sudadera
+  Precio:    $699
+
+  Score total: 0.8711   ← subió respecto a la ronda anterior
+
+  ¿Qué te parece esta recomendación?
+  → S
+
+==================================================
+          RESUMEN DE SESIÓN
+==================================================
+  Recomendaciones totales: 1
+  Likes:                   1
+  Dislikes:                0
+  Tasa de aceptación:      100.0%
+```
+
+El estado del agente queda guardado en `data/user_profile.json`. Al ejecutar
+el sistema de nuevo, el agente retoma las preferencias aprendidas sin necesidad
+de configurarlas desde cero.
+
+
 ### Experimentos
 
 ```bash
@@ -88,7 +179,7 @@ Los resultados (CSVs + gráficas PNG) se guardan en `experiments/results/`.
 
 ---
 
-## 🔁 Ciclo del agente
+## Ciclo del agente
 
 ```
 Percepción → Estado → Decisión → Acción → Retroalimentación
@@ -125,7 +216,7 @@ Percepción → Estado → Decisión → Acción → Retroalimentación
 
 ---
 
-## Tecnologías
+## Herramientas
 
 - Python 3.10+
 - pandas — manejo del catálogo

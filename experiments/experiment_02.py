@@ -1,23 +1,19 @@
 """
 EXPERIMENTO 2: Agente con aprendizaje vs Agente sin aprendizaje
 
-Hipótesis:
-    Un agente que actualiza su estado con feedback debe superar
-    consistentemente a un agente que recomienda al azar (sin aprendizaje).
+Un agente que actualiza su estado con feedback debe superar
+consistentemente a un agente que recomienda al azar (sin aprendizaje).
 
-Metodología:
+Para ello: 
     - Se simulan 2 agentes en paralelo durante 20 rondas
-    - Agente A: aprende (actualiza Cp, Tp, Mp con feedback)
-    - Agente B: no aprende (pesos y preferencias fijos, elige al azar)
+        - Agente A: aprende (actualiza Cp, Tp, Mp con feedback)
+        - Agente B: no aprende (pesos y preferencias fijos, elige al azar)
     - Mismo usuario simulado para ambos
     - Comparar tasa de aceptación y precisión de coincidencia
 
 Resultado esperado:
     - Agente A supera a Agente B en tasa de aceptación
     - La diferencia se amplía con el tiempo (el aprendizaje acumula ventaja)
-
-Cómo ejecutar:
-    python experiments/experiment_02.py
 """
 
 import sys

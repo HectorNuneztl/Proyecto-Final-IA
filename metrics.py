@@ -1,9 +1,7 @@
 """
-metrics.py
-==========
-Calcula y registra las métricas del agente inteligente.
+Calculo y registro de las métricas del agente.
 
-Métricas implementadas (definidas en el proyecto):
+Métricas implementadas:
     1. Tasa de aceptación        → likes / total de recomendaciones
     2. Precisión de coincidencia → qué tan bien coincide la recomendación con Cp, Tp, Mp
     3. Evolución de pesos        → cómo cambian w1, w2, w3 con el tiempo
@@ -13,15 +11,14 @@ Métricas implementadas (definidas en el proyecto):
 import json
 import os
 
-
 def tasa_aceptacion(likes: int, total: int) -> float:
     """
     Métrica 1: Tasa de aceptación.
     
-    Mide qué fracción de las recomendaciones fueron aceptadas (like).
+    Mediante esta se mide qué fracción de las recomendaciones fueron aceptadas (like).
     Rango: [0.0, 1.0]
     
-    Si sube con el tiempo → el agente está aprendiendo correctamente.
+    Si sube con el tiempo significa que el agente está aprendiendo correctamente.
     """
     if total == 0:
         return 0.0
@@ -32,12 +29,12 @@ def precision_coincidencia(producto: dict, state_Cp: dict, state_Tp: dict, state
     """
     Métrica 2: Precisión de coincidencia.
     
-    Mide qué tan bien coincide el producto recomendado con las
+    Meidante esta se mide qué tan bien coincide el producto recomendado con las
     preferencias actuales del agente (Cp, Tp, Mp).
     
-    Valor entre 0.0 y 1.0:
-        1.0 → coincide en color, tela y marca
-        0.0 → no coincide en ningún atributo
+    Valor entre 0 y 1:
+        1 → coincide en color, tela y marca
+        0 → no coincide en ningún atributo
     """
     coincidencias = 0
     total_atributos = 0
@@ -69,7 +66,7 @@ def calcular_score_promedio_aceptados(historial: list, scores_por_ronda: list) -
     """
     Métrica 3: Score promedio de las recomendaciones aceptadas.
     
-    Si el agente mejora, el score de los productos que gustan
+    Si el agente mejora, el score de los productos que le gustan al usuario
     debería ser más alto con el tiempo.
     """
     if not scores_por_ronda:
@@ -90,8 +87,8 @@ def registrar_snapshot(ronda: int, feedback: str, producto: dict,
                         score: float, state_Cp: dict, state_Tp: dict,
                         state_Mp: dict, pesos: dict) -> dict:
     """
-    Crea un snapshot del estado del agente en una ronda dada.
-    Se usa para graficar la evolución a lo largo del tiempo.
+    Creación de un snapshot del estado del agente en una ronda dada para graficar 
+    la evolución a lo largo del tiempo.
     
     Retorna un diccionario con todos los valores relevantes de esa ronda.
     """

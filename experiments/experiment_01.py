@@ -1,11 +1,10 @@
 """
 EXPERIMENTO 1: ¿El agente mejora con el tiempo?
 
-Hipótesis:
-    A medida que el usuario da feedback, la tasa de aceptación
-    de las recomendaciones debe aumentar.
+A medida que el usuario da feedback, la tasa de aceptación
+de las recomendaciones debe aumentar.
 
-Metodología:
+Para ello se usa: 
     - Usuario simulado con preferencia real: azul, algodón, Nike
     - 20 rondas de interacción
     - Feedback automático: LIKE si el producto tiene algún atributo preferido,
@@ -17,9 +16,6 @@ Resultado esperado:
     - Cp['azul'] crece consistentemente
     - Pesos se adaptan al patrón de feedback
     - Gráficas muestran tendencia positiva
-
-Cómo ejecutar:
-    python experiments/experiment_01.py
 """
 
 import sys

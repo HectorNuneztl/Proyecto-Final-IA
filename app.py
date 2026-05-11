@@ -1,15 +1,9 @@
 """
-app.py
-======
-Punto de entrada principal del sistema Clothes Recommender.
-
-Ejecutar con:
-    python app.py
-
 Modos disponibles:
     1 → Sesión interactiva normal
     2 → Sesión con desglose de decisión visible (ideal para presentaciones)
     3 → Reiniciar perfil del usuario
+    4 → Salir
 """
 
 import sys
@@ -75,7 +69,7 @@ def main():
                 reiniciar_perfil()
 
         elif opcion == '4':
-            print("\n  ¡Hasta luego! \n")
+            print("\n  ¡Adiós! \n")
             break
 
         else:

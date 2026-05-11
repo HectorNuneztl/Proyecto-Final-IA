@@ -32,7 +32,7 @@ from agent.decision import decidir
 from agent.feedback import procesar_feedback, ajustar_pesos
 from metrics        import tasa_aceptacion, precision_coincidencia
 
-# ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
+# CONFIGURACIÓN
 CATALOG_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'products.csv')
 PROFILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'user_profile.json')
 RESULTS_DIR  = os.path.join(os.path.dirname(__file__), 'results')
@@ -45,7 +45,7 @@ PREFERENCIAS_USUARIO = {
     'marcas':  ['Nike', 'Adidas']
 }
 
-# ─── HELPERS ──────────────────────────────────────────────────────────────────
+# HELPERS 
 
 def reset_perfil():
     perfil = {
@@ -72,7 +72,7 @@ def feedback_simulado(producto: dict) -> str:
     return 'dislike'
 
 
-# ─── AGENTE A: Con aprendizaje ─────────────────────────────────────────────────
+# AGENTE A: Con aprendizaje
 
 def simular_agente_con_aprendizaje(catalogo: pd.DataFrame) -> dict:
     """
@@ -115,7 +115,7 @@ def simular_agente_con_aprendizaje(catalogo: pd.DataFrame) -> dict:
     return {'tasas': tasas, 'precisiones': precisiones, 'likes': likes, 'total': total}
 
 
-# ─── AGENTE B: Sin aprendizaje (baseline) ─────────────────────────────────────
+# AGENTE B: Sin aprendizaje (baseline) 
 
 def simular_agente_sin_aprendizaje(catalogo: pd.DataFrame) -> dict:
     """
@@ -157,7 +157,7 @@ def simular_agente_sin_aprendizaje(catalogo: pd.DataFrame) -> dict:
     return {'tasas': tasas, 'precisiones': precisiones, 'likes': likes, 'total': total}
 
 
-# ─── GRÁFICAS ─────────────────────────────────────────────────────────────────
+# GRÁFICAS 
 
 def generar_graficas(res_A: dict, res_B: dict):
     rondas = list(range(1, N_RONDAS + 1))
@@ -169,7 +169,7 @@ def generar_graficas(res_A: dict, res_B: dict):
         fontsize=13, fontweight='bold'
     )
 
-    # ── Panel izquierdo: Tasa de aceptación ──────────────────────
+    # Panel izquierdo: Tasa de aceptación
     ax1 = axes[0]
     ax1.plot(rondas, res_A['tasas'], color='#2ecc71', linewidth=2.5,
              marker='o', markersize=4, label='Agente A (con aprendizaje)')
@@ -198,7 +198,7 @@ def generar_graficas(res_A: dict, res_B: dict):
                  fontsize=8, color='#c0392b',
                  arrowprops=dict(arrowstyle='->', color='#c0392b', lw=1.2))
 
-    # ── Panel derecho: Comparación de likes totales ───────────────
+    # Panel derecho: Comparación de likes totales
     ax2 = axes[1]
     categorias = ['Agente A\n(con aprendizaje)', 'Agente B\n(sin aprendizaje)']
     likes_vals  = [res_A['likes'], res_B['likes']]
@@ -227,7 +227,7 @@ def generar_graficas(res_A: dict, res_B: dict):
     print(f"  Gráficas guardadas: {path_png}")
 
 
-# ─── MAIN ─────────────────────────────────────────────────────────────────────
+# MAIN
 
 def ejecutar_experimento():
     os.makedirs(RESULTS_DIR, exist_ok=True)

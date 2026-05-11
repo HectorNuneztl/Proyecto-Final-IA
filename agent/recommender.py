@@ -48,10 +48,7 @@ class ClothesRecommenderAgent:
         print("     CLOTHES RECOMMENDER — Agente IA")
         print("═" * 50)
 
-    # ──────────────────────────────────────────────
     # PERCEPCIÓN
-    # ──────────────────────────────────────────────
-
     def percibir_preferencias_iniciales(self):
         """
         PERCEPCIÓN: El agente solicita las preferencias iniciales del usuario.
@@ -99,10 +96,7 @@ class ClothesRecommenderAgent:
             if telas:   print(f"     Telas:   {telas}")
             if marcas:  print(f"     Marcas:  {marcas}")
 
-    # ──────────────────────────────────────────────
     # DECISIÓN + ACCIÓN
-    # ──────────────────────────────────────────────
-
     def recomendar(self, mostrar_desglose: bool = True) -> dict | None:
         """
         DECISIÓN + ACCIÓN: El agente elige y presenta una recomendación.
@@ -149,10 +143,7 @@ class ClothesRecommenderAgent:
 
         return producto
 
-    # ──────────────────────────────────────────────
     # RETROALIMENTACIÓN / APRENDIZAJE
-    # ──────────────────────────────────────────────
-
     def solicitar_feedback(self, producto: dict) -> str | None:
         """
         ACCIÓN: El agente solicita retroalimentación al usuario.
@@ -188,10 +179,8 @@ class ClothesRecommenderAgent:
         imprimir_cambios(cambios)
         ajustar_pesos(self.state)
 
-    # ──────────────────────────────────────────────
-    # CICLO COMPLETO
-    # ──────────────────────────────────────────────
 
+    # CICLO COMPLETO
     def ejecutar_ciclo(self, mostrar_desglose: bool = True):
         """
         Ejecuta UNA ronda completa del ciclo del agente:

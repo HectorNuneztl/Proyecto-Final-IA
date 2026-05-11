@@ -34,7 +34,7 @@ from agent.decision import decidir
 from agent.feedback import procesar_feedback, ajustar_pesos
 from metrics        import tasa_aceptacion, registrar_snapshot
 
-# ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
+# CONFIGURACIÓN 
 CATALOG_PATH  = os.path.join(os.path.dirname(__file__), '..', 'data', 'products.csv')
 PROFILE_PATH  = os.path.join(os.path.dirname(__file__), '..', 'data', 'user_profile.json')
 RESULTS_DIR   = os.path.join(os.path.dirname(__file__), 'results')
@@ -47,7 +47,7 @@ PREFERENCIAS_USUARIO = {
     'marcas':  ['Nike']
 }
 
-# ─── FUNCIÓN DE FEEDBACK SIMULADO ─────────────────────────────────────────────
+# FUNCIÓN DE FEEDBACK SIMULADO
 
 def feedback_simulado(producto: dict) -> str:
     """
@@ -64,7 +64,7 @@ def feedback_simulado(producto: dict) -> str:
         return 'like'
     return 'dislike'
 
-# ─── RESET DEL PERFIL ─────────────────────────────────────────────────────────
+# RESET DEL PERFIL
 
 def reset_perfil():
     perfil = {
@@ -79,7 +79,7 @@ def reset_perfil():
     with open(PROFILE_PATH, 'w', encoding='utf-8') as f:
         json.dump(perfil, f, ensure_ascii=False, indent=2)
 
-# ─── EXPERIMENTO ──────────────────────────────────────────────────────────────
+# EXPERIMENTO
 
 def ejecutar_experimento():
     os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -117,23 +117,23 @@ def ejecutar_experimento():
             state.data['historial'] = []
             state.guardar()
 
-        # ── Decisión ──────────────────────────────────────────────
+        # Decisión
         top1     = decidir(catalogo, state, top_n=1)
         decision = top1[0]
         fila     = catalogo[catalogo['id'] == decision['producto_id']].iloc[0]
         producto = fila.to_dict()
 
-        # ── Feedback simulado ─────────────────────────────────────
+        # Feedback simulado
         fb = feedback_simulado(producto)
         if fb == 'like':
             likes_acum += 1
         total_acum += 1
 
-        # ── Actualizar estado ─────────────────────────────────────
+        # Actualizar estado
         procesar_feedback(producto, fb, state)
         ajustar_pesos(state)
 
-        # ── Registrar métricas ────────────────────────────────────
+        # Registrar métricas
         tasa      = tasa_aceptacion(likes_acum, total_acum)
         cp_azul   = state.Cp.get('azul', 0)
         snap      = registrar_snapshot(
@@ -154,19 +154,19 @@ def ejecutar_experimento():
     print(f"\n  Tasa de aceptación final: {tasas_acum[-1]:.1f}%")
     print(f"  Cp[azul] final:           {cp_azul_historia[-1]:.1f}")
 
-    # ── Guardar CSV de resultados ─────────────────────────────────
+    # Guardar CSV de resultados
     df_resultados = pd.DataFrame(snapshots)
     csv_path = os.path.join(RESULTS_DIR, 'exp01_resultados.csv')
     df_resultados.to_csv(csv_path, index=False)
     print(f"\n  CSV guardado: {csv_path}")
 
-    # ── Generar gráficas ──────────────────────────────────────────
+    # Generar gráficas
     generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, scores_ronda)
 
     return snapshots, tasas_acum
 
 
-# ─── GRÁFICAS ─────────────────────────────────────────────────────────────────
+# GRÁFICAS
 
 def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, scores_ronda):
     rondas = list(range(1, len(snapshots) + 1))
@@ -180,7 +180,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
 
     gs = gridspec.GridSpec(2, 3, figure=fig, hspace=0.42, wspace=0.35)
 
-    # ── Gráfica 1: Tasa de aceptación acumulada ───────────────────
+    # Gráfica 1: Tasa de aceptación acumulada
     ax1 = fig.add_subplot(gs[0, 0])
     ax1.plot(rondas, tasas_acum, color='#2ecc71', linewidth=2.5, marker='o', markersize=4)
     ax1.axhline(y=50, color='gray', linestyle='--', linewidth=1, alpha=0.6, label='50% base')
@@ -192,7 +192,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax1.legend(fontsize=8)
     ax1.grid(True, alpha=0.3)
 
-    # ── Gráfica 2: Evolución de Cp[azul] ─────────────────────────
+    # Gráfica 2: Evolución de Cp[azul] 
     ax2 = fig.add_subplot(gs[0, 1])
     ax2.plot(rondas, cp_azul_historia, color='#3498db', linewidth=2.5, marker='s', markersize=4)
     ax2.fill_between(rondas, cp_azul_historia, alpha=0.15, color='#3498db')
@@ -202,7 +202,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax2.set_ylabel('Puntaje acumulado')
     ax2.grid(True, alpha=0.3)
 
-    # ── Gráfica 3: Evolución de pesos w1, w2, w3 ─────────────────
+    # Gráfica 3: Evolución de pesos w1, w2, w3
     ax3 = fig.add_subplot(gs[0, 2])
     ax3.plot(rondas, pesos_historia['w1'], label='w1 (similitud)',   color='#e74c3c', linewidth=2)
     ax3.plot(rondas, pesos_historia['w2'], label='w2 (preferencia)', color='#9b59b6', linewidth=2)
@@ -214,7 +214,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax3.legend(fontsize=8)
     ax3.grid(True, alpha=0.3)
 
-    # ── Gráfica 4: Score por ronda (like vs dislike) ──────────────
+    # Gráfica 4: Score por ronda (like vs dislike)
     ax4 = fig.add_subplot(gs[1, 0])
     likes_r    = [s for s in scores_ronda if s['feedback'] == 'like']
     dislikes_r = [s for s in scores_ronda if s['feedback'] == 'dislike']
@@ -234,7 +234,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax4.legend(fontsize=8)
     ax4.grid(True, alpha=0.3)
 
-    # ── Gráfica 5: Distribución final de Cp ──────────────────────
+    # Gráfica 5: Distribución final de Cp 
     ax5 = fig.add_subplot(gs[1, 1])
     ultimo = snapshots[-1]
     cp_final = ultimo['Cp_snapshot']
@@ -253,7 +253,7 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax5.grid(True, alpha=0.3, axis='y')
     plt.setp(ax5.xaxis.get_majorticklabels(), rotation=30, ha='right', fontsize=8)
 
-    # ── Gráfica 6: Likes vs Dislikes acumulados ───────────────────
+    # Gráfica 6: Likes vs Dislikes acumulados
     ax6 = fig.add_subplot(gs[1, 2])
     likes_acum_hist    = []
     dislikes_acum_hist = []
@@ -274,14 +274,14 @@ def generar_graficas(snapshots, tasas_acum, pesos_historia, cp_azul_historia, sc
     ax6.legend(fontsize=8, loc='upper left')
     ax6.grid(True, alpha=0.3)
 
-    # ── Guardar ───────────────────────────────────────────────────
+    # Guardar
     path_png = os.path.join(RESULTS_DIR, 'exp01_graficas.png')
     plt.savefig(path_png, dpi=150, bbox_inches='tight')
     plt.close()
     print(f"  Gráficas guardadas: {path_png}")
 
 
-# ─── MAIN ─────────────────────────────────────────────────────────────────────
+# MAIN
 
 if __name__ == '__main__':
     ejecutar_experimento()

@@ -34,10 +34,7 @@ class AgentState:
         """Carga el estado desde el archivo JSON o crea uno nuevo."""
         self.data = self._cargar_perfil()
 
-    # ------------------------------------------------------------------
     # Propiedades que exponen S = (Cp, Tp, Mp, H, R)
-    # ------------------------------------------------------------------
-
     @property
     def Cp(self) -> dict:
         """Preferencias de color: {color: puntaje_acumulado}"""
@@ -68,10 +65,7 @@ class AgentState:
         """Pesos w1, w2, w3 de la función de decisión"""
         return self.data['pesos']
 
-    # ------------------------------------------------------------------
     # Métodos para actualizar el estado
-    # ------------------------------------------------------------------
-
     def registrar_preferencias_iniciales(self, colores: list, telas: list, marcas: list):
         """
         Registra las preferencias iniciales declaradas por el usuario.
@@ -170,10 +164,7 @@ class AgentState:
         ]
         return "\n".join(lineas)
 
-    # ------------------------------------------------------------------
     # Persistencia
-    # ------------------------------------------------------------------
-
     def _cargar_perfil(self) -> dict:
         """Lee el estado desde el archivo JSON."""
         with open(PROFILE_PATH, 'r', encoding='utf-8') as f:

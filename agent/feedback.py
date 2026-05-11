@@ -63,18 +63,15 @@ def ajustar_pesos(state: AgentState):
     """
     Ajusta dinámicamente los pesos w1, w2, w3 según el desempeño acumulado.
 
-    Lógica de adaptación:
-    ┌──────────────────────────────────────────────────────────┐
-    │  Si tasa de aceptación > 0.7 (agente va bien)           │
-    │      → subir w2 (más peso al historial de preferencias) │
-    │      → bajar un poco w3 (menos exploración necesaria)   │
-    │                                                          │
-    │  Si tasa de aceptación < 0.4 (agente va mal)            │
-    │      → subir w3 (más exploración / novedad)             │
-    │      → bajar un poco w2                                  │
-    └──────────────────────────────────────────────────────────┘
+      - Si tasa de aceptación > 0.7 (agente va bien)           
+        - subir w2 (más peso al historial de preferencias) 
+        - bajar un poco w3 (menos exploración necesaria)   
+                                                              
+      - Si tasa de aceptación < 0.4 (agente va mal)          
+        - subir w3 (más exploración / novedad)             
+        - bajar un poco w2                                  
 
-    Los pesos siempre suman 1.0 (están normalizados).
+    Los pesos siempre deberán sumar 1.0
     """
     likes    = state.data['likes_totales']
     dislikes = state.data['dislikes_totales']
